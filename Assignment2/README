@@ -1,0 +1,147 @@
+CMPT 417/827, Fall 2020, Assignment 2
+
+SAT-based solving of Quasigroup Completion 
+Problems (QCP) a.k.a. Latin square completion.
+=============================================
+
+Content
+-------
+This Assignment contains three folders representing three
+ways of transforming QCP to SAT.
+
+    1. Minimal_Subset_1-3-4/
+        - Minimal subset of the properties (a), (c), and (d)
+    2. Subset_1-2-3-4/
+        - Subset of the properties (a), (b), (c), and (d)
+    3. Subset_1-2-3-4-5/
+        - Subset of the properties (a), (b), (c), (d), and (e)
+    4. MapleSAT/
+        - Source code for MapleSAT solver
+    5. README
+
+Each Folder contains:
+
+    1. qcp2cnf.cpp
+        - Program that transforms an instance of QCP to a CNF formula representing
+          its solutions
+    2. qcp2cnf
+        - compiled QCP to CNF program
+    3. maplesat
+        - compiled SAT solver
+    4. qcp-files/
+        - folder containing QCP files
+    5. cnf-files/
+        - folder containing CNF files
+    6. out-files/
+        - folder containing OUT files
+
+
+Compiling
+---------
+1. In order to compile the qcp2cnf.cpp, navigate to each of the subset folders
+   and run the following command:
+
+    $ g++ -o qcp2cnf qcp2cnf.cpp
+
+2. To compile the MapleSAT solver, first navigate to the MapleSAT/
+   folder and run this command:
+    
+    $ make
+
+3. Now navigate to the simp/ folder inside of MapleSAT/ and enter this command
+   to compile the program:
+
+    $ cp maplesat_static maplesat
+
+4. The last step is to copy the compiled "maplesat" file and paste it inside each    
+   of the subset folders Minimal_Subset_1-3-4/, Subset_1-2-3-4/, and Subset_1-2-3-4-5/.
+
+Running
+-------
+1. In order to run the program you must first navigate to
+   any of the subset folders 
+   Minimal_Subset_1-3-4/, Subset_1-2-3-4/, or Subset_1-2-3-4-5/.
+
+2. To tranform a QCP to CNF file run the following command
+   for each order and instance:
+
+    $ ./qcp2cnf q_xx_xx.qcp q_xx_xx.cnf
+        Example: ./qcp2cnf q_10_01.qcp q_10_01.cnf
+
+3. To run the SAT solver run the following command
+   for each order and instance:
+
+   $ ./maplesat < cnf-files/q_xx_xx.cnf > out-files/q_xx_xx.out
+        Example: ./maplesat < cnf-files/q_10_01.cnf > out-files/q_10_01.out
+
+List of All Commands
+--------------------
+g++ -o qcp2cnf qcp2cnf.cpp
+
+./qcp2cnf q_10_01.qcp q_10_01.cnf
+./qcp2cnf q_10_02.qcp q_10_02.cnf
+./qcp2cnf q_10_03.qcp q_10_03.cnf
+./qcp2cnf q_10_04.qcp q_10_04.cnf
+./qcp2cnf q_16_01.qcp q_16_01.cnf
+./qcp2cnf q_16_02.qcp q_16_02.cnf
+./qcp2cnf q_16_03.qcp q_16_03.cnf
+./qcp2cnf q_16_04.qcp q_16_04.cnf
+./qcp2cnf q_20_01.qcp q_20_01.cnf
+./qcp2cnf q_20_02.qcp q_20_02.cnf
+./qcp2cnf q_20_03.qcp q_20_03.cnf
+./qcp2cnf q_20_04.qcp q_20_04.cnf
+./qcp2cnf q_24_01.qcp q_24_01.cnf
+./qcp2cnf q_24_02.qcp q_24_02.cnf
+./qcp2cnf q_24_03.qcp q_24_03.cnf
+./qcp2cnf q_24_04.qcp q_24_04.cnf
+./qcp2cnf q_30_01.qcp q_30_01.cnf
+./qcp2cnf q_30_02.qcp q_30_02.cnf
+./qcp2cnf q_30_03.qcp q_30_03.cnf
+./qcp2cnf q_30_04.qcp q_30_04.cnf
+./qcp2cnf q_32_01.qcp q_32_01.cnf
+./qcp2cnf q_32_02.qcp q_32_02.cnf
+./qcp2cnf q_32_03.qcp q_32_03.cnf
+./qcp2cnf q_32_04.qcp q_32_04.cnf
+./qcp2cnf q_49_01.qcp q_49_01.cnf
+./qcp2cnf q_49_02.qcp q_49_02.cnf
+./qcp2cnf q_49_03.qcp q_49_03.cnf
+./qcp2cnf q_49_04.qcp q_49_04.cnf
+
+./maplesat < cnf-files/q_10_01.cnf > out-files/q_10_01.out
+./maplesat < cnf-files/q_10_02.cnf > out-files/q_10_02.out
+./maplesat < cnf-files/q_10_03.cnf > out-files/q_10_03.out
+./maplesat < cnf-files/q_10_04.cnf > out-files/q_10_04.out
+./maplesat < cnf-files/q_16_01.cnf > out-files/q_16_01.out
+./maplesat < cnf-files/q_16_02.cnf > out-files/q_16_02.out
+./maplesat < cnf-files/q_16_03.cnf > out-files/q_16_03.out
+./maplesat < cnf-files/q_16_04.cnf > out-files/q_16_04.out
+./maplesat < cnf-files/q_20_01.cnf > out-files/q_20_01.out
+./maplesat < cnf-files/q_20_02.cnf > out-files/q_20_02.out
+./maplesat < cnf-files/q_20_03.cnf > out-files/q_20_03.out
+./maplesat < cnf-files/q_20_04.cnf > out-files/q_20_04.out
+./maplesat < cnf-files/q_24_01.cnf > out-files/q_24_01.out
+./maplesat < cnf-files/q_24_02.cnf > out-files/q_24_02.out
+./maplesat < cnf-files/q_24_03.cnf > out-files/q_24_03.out
+./maplesat < cnf-files/q_24_04.cnf > out-files/q_24_04.out
+./maplesat < cnf-files/q_30_01.cnf > out-files/q_30_01.out
+./maplesat < cnf-files/q_30_02.cnf > out-files/q_30_02.out
+./maplesat < cnf-files/q_30_03.cnf > out-files/q_30_03.out
+./maplesat < cnf-files/q_30_04.cnf > out-files/q_30_04.out
+./maplesat < cnf-files/q_32_01.cnf > out-files/q_32_01.out
+./maplesat < cnf-files/q_32_02.cnf > out-files/q_32_02.out
+./maplesat < cnf-files/q_32_03.cnf > out-files/q_32_03.out
+./maplesat < cnf-files/q_32_04.cnf > out-files/q_32_04.out
+./maplesat < cnf-files/q_49_01.cnf > out-files/q_49_01.out
+./maplesat < cnf-files/q_49_02.cnf > out-files/q_49_02.out
+./maplesat < cnf-files/q_49_03.cnf > out-files/q_49_03.out
+./maplesat < cnf-files/q_49_04.cnf > out-files/q_49_04.out
+
+
+
+
+
+
+
+
+
+
